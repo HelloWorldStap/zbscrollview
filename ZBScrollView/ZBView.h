@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSInteger,ScrollviewDerection)
+{
+    ScrollviewDerectiontop,
+    ScrollviewDerectionDown
+};
+
 @class ZBView;
 @protocol ZBViewDatasouce <NSObject>
 @required
@@ -31,18 +37,31 @@
  */
 -(void)zbview:(UIView *)styleview didselectedindex:(NSInteger)index;
 @end
+
+
 @interface ZBView : UIView
-
+/**
+ 数据源方法
+ */
 @property(nonatomic,assign)id<ZBViewDatasouce>datasouce;
-
+/**
+ 代理方法
+ */
 @property(nonatomic,assign)id<zbviewdeleget>deleget;
-
--(void)zbreloddata;
-
 //停留时间
 @property(nonatomic,assign)CGFloat stoptime;
 //动画时间
 @property(nonatomic,assign)CGFloat annmaintime;
+/**
+滑动的方向top向上down向下
+ */
+@property(nonatomic,assign)ScrollviewDerection dection;
+
+
+/**
+ 刷新的方法
+ */
+-(void)zbreloddata;
 
 
 @end

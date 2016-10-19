@@ -30,8 +30,9 @@
         _zbview.backgroundColor = [UIColor grayColor];
         _zbview.datasouce = self;
         _zbview.deleget = self;
-        _zbview.stoptime = 5;
-        _zbview.annmaintime = 3;
+        _zbview.stoptime = 1;
+        _zbview.annmaintime = 0.5;
+        _zbview.dection = ScrollviewDerectiontop;
     }
     return _zbview;
 }
@@ -74,9 +75,16 @@
  */
 -(void)zbview:(UIView*)styleview ChangeDatasouceAtIndex:(NSInteger)index
 {
+    
     UILabel *label = (UILabel *)styleview;
     label.text = self.array[index];
     
+}
+-(void)zbview:(UIView *)styleview didselectedindex:(NSInteger)index
+{
+    NSLog(@"查看点击那一个%ld",(long)index);
+
+
 }
 
 -(void)tete
